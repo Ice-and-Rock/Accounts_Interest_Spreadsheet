@@ -6,7 +6,7 @@ namespace Accounts_Interest_Spreadsheet.Models
     {
         public int Id { get; set; } // Unique identifier for the account!!
         public DateTime Date { get; set; }
-        public string BankName { get; set; } = string.Empty;
+        public string BankName { get; set; } = string.Empty; // initialises so it's not null
         public string BankLocation { get; set; } = string.Empty;
         public decimal CurrentAmount { get; set; }
         public decimal InterestRate { get; set;}
@@ -24,6 +24,8 @@ namespace Accounts_Interest_Spreadsheet.Models
         // Calculated properties **CHECK
         public decimal DailyInterest => CalculateDailyInterest();
         public decimal TomorrowAmount => CalculateTomorrowAmount();
+        //public decimal EndOfMonthAmount => CalculateEndOfMonthAmount();  ***CHECK needs a method
+
 
         private decimal CalculateDailyInterest()
         {

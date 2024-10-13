@@ -65,15 +65,15 @@
                 <tr onclick="location.href='@Url.Page("dataDetail", new { id = data.Id })'">
                     <td>@data.Date.ToShortDateString()</td>
                     <td>@data.BankName</td>
-                    <td>@data.CurrentAmount.ToString("C2")</td>
+                    <td>€ @data.CurrentAmount.ToString("N2")</td>
                     <td>
                         <span style="color:@((data.InterestRate < 0 ? "red" : "green"));">
                             @data.InterestRate%
                         </span>
                     </td>
-                    <td>@data.DailyInterest.ToString("C2")</td>
-                    <td>@data.TomorrowAmount.ToString("C2")</td>
-                    <td>@data.EndOfMonthAmount.ToString("C2")</td>
+                    <td>€ @data.DailyInterest.ToString("N2")</td>
+                    <td>€ @data.TomorrowAmount.ToString("N2")</td>
+                    @*<td>€ @data.EndOfMonthAmount.ToString("C2")</td>*@
                 </tr>
             }
         </tbody>
