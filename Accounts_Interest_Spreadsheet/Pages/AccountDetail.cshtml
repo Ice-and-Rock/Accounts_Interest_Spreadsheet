@@ -1,0 +1,64 @@
+﻿@page "{id:int}"
+@model Accounts_Interest_Spreadsheet.Pages.AccountDetailModel
+@{
+    ViewData["Title"] = "Account Detail";
+}
+
+<h1>Account Detail</h1>
+
+@if (Model.Account != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Bank Name</th>
+                <th>Current Amount</th>
+                <th>Interest Rate</th>
+                <th>Time of Interest Payment</th>
+                <th>Day of Next Interest Payment</th>
+                <th>Transactions IN</th>
+                <th>Transactions OUT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Account.BankName</td>
+                <td>@Model.Account.CurrentAmount.ToString("C2")</td>
+                <td>@Model.Account.InterestRate%</td>
+                <td>@Model.Account.NextInterestPaymentTime</td>
+                <td style="color:red;">@Model.Account.NextInterestPaymentDate.ToShortDateString()</td>
+                <td>@Model.Account.TransactionsIn</td>
+                <td>@Model.Account.TransactionsOut</td>
+            </tr>
+        </tbody>
+    </table>
+
+    @*<h2>Transaction History</h2>*@
+    <!--<table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>-->
+            <!-- Populate this with transaction data -->
+            <!-- Example: -->
+            <!--<tr>
+                <td>@DateTime.Now.ToShortDateString()</td>
+                <td>Deposit</td>
+                <td>$500.00</td>
+            </tr>
+            <tr>
+                <td>@DateTime.Now.AddDays(-1).ToShortDateString()</td>
+                <td>Withdrawal</td>
+                <td>$200.00</td>
+            </tr>
+        </tbody>
+    </table>-->
+}
+else
+{
+    <p>Account not found.</p>
+}

@@ -1,11 +1,81 @@
 ﻿@page
-@model IndexModel
+@model Accounts_Interest_Spreadsheet.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Accounts Interest Spreadsheet";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Bank Account Overview</h2>
 
+@*The following lines are for data submission, if needed...!
+    - It will require CRUD to be set up.*@
+<!--<form method="post">-->
+<!-- Input fields for data submission can go here -->
+<!--<input type="number" asp-for="Input.CurrentAmount" placeholder="Current Amount" required />
+    <input type="number" asp-for="Input.InterestRate" placeholder="Interest Rate" required />
+    <input type="number" asp-for="Input.TransactionsIn" placeholder="Transactions In" required />
+    <input type="number" asp-for="Input.TransactionsOut" placeholder="Transactions Out" required />
+    <button type="submit">Submit</button>
+</form>-->
+
+@*<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Current Amount</th>
+            <th>Interest Rate</th>
+            <th>Daily Interest</th>
+            <th>Tomorrow's Amount</th>
+            <th>Transactions In</th>
+            <th>Transactions Out</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.DisplayData)
+        {
+            <tr>
+                <td>@data.Date.ToShortDateString()</td>
+                <td>€@data.CurrentAmount</td>
+                <td>@data.InterestRate%</td>
+                <td>€@data.DailyInterest</td>
+                <td>€@data.TomorrowAmount</td>
+                <td>€@data.TransactionsIn</td>
+                <td>€@data.TransactionsOut</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Bank Name</th>
+                <th>Current Amount</th>
+                <th>Interest Rate</th>
+                <th>Daily Interest</th>
+                <th>Tomorrow's Projected Amount</th>
+                <th>End of Month Projected Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model.DisplayData)
+            {
+                    // clickable event for each Ruw
+                <tr onclick="location.href='@Url.Page("dataDetail", new { id = data.Id })'">
+                    <td>@data.Date.ToShortDateString()</td>
+                    <td>@data.BankName</td>
+                    <td>@data.CurrentAmount.ToString("C2")</td>
+                    <td>
+                        <span style="color:@((data.InterestRate < 0 ? "red" : "green"));">
+                            @data.InterestRate%
+                        </span>
+                    </td>
+                    <td>@data.DailyInterest.ToString("C2")</td>
+                    <td>@data.TomorrowAmount.ToString("C2")</td>
+                    <td>@data.EndOfMonthAmount.ToString("C2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

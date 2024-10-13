@@ -1,0 +1,84 @@
+﻿/* Base Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.8rem;
+    font-family: Arial, sans-serif;
+}
+
+/* The Cells of the table */
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; 
+}
+
+/* Table header styling */
+th {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+/* off-colours for each row */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light grey for even rows */
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: lightyellow; /* Darker grey for row hover */
+}
+
+/* table responsive propertties */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Adds horizontal scrolling on smaller screens */
+}
+
+/* Responsive design for mobile and small screens */
+@media (max-width: 600px) {
+    table {
+        font-size: 0.8rem; /* Smaller font on small screens */
+    }
+
+    th, td {
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+    /* Stack the table elements on small devices */
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    /* Hide the table headers on small screens */
+    thead {
+        display: none;
+    }
+
+    /* Each ROW becomes a block with data */
+    tr {
+        margin-bottom: 15px;
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 50%;
+        position: relative;
+        text-align: right;
+    }
+
+        /* Label the td::before pseudo-element with the header text */
+        td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            padding-left: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+}

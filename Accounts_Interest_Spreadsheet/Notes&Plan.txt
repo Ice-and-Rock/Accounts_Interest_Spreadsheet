@@ -1,0 +1,27 @@
+﻿PAGES PLAN
+
+*Home page - Bank accounts overview
+
+Display: table
+
+- date
+- bank name
+- current amount
+- interest rate (current and projected. Maybe different colours?)
+- daily interest (to nearest two decimal place)
+- tomorrow projected amount
+- end of month projected amount
+
+
+*Account page - Specific account information
+
+Display: account information at top, specific transactions in a table below.
+
+- bank name
+- current amount
+- interest rate
+- time of interest payment
+- day of next interest payment
+*different colour
+- transactions IN
+- transactions OUt
