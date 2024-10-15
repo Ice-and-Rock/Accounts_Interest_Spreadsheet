@@ -25,3 +25,7 @@ Display: account information at top, specific transactions in a table below.
 *different colour
 - transactions IN
 - transactions OUt
+
+
+DATA SCTRUCTURE
+- InterestPaymentSchedule is basic. Only three fieilds currently exist. More can be added using switch case (or TimeDAte). 

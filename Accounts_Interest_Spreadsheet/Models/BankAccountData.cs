@@ -24,8 +24,7 @@ namespace Accounts_Interest_Spreadsheet.Models
         // Calculated properties **CHECK
         public decimal DailyInterest => CalculateDailyInterest();
         public decimal TomorrowAmount => CalculateTomorrowAmount();
-        //public decimal EndOfMonthAmount => CalculateEndOfMonthAmount();  ***CHECK needs a method
-
+        public decimal EndOfMonthAmount => CalculateEndOfMonthAmount();  // CHECK, need a method?**
 
         private decimal CalculateDailyInterest()
         {
@@ -36,10 +35,20 @@ namespace Accounts_Interest_Spreadsheet.Models
         private decimal CalculateTomorrowAmount()
         {
             // returns the calculation rounding to two decimals for tomorrow's amount
+                // This function must eventually:
+                    // chasnge colour depending on Account.InterestPaymentSchedule (to show projected/actual amount)
+                    // open a "Tooltip" box to show which days interest is paid (switch case) 
             return Math.Round(CurrentAmount + TransactionsIn - TransactionsOut + DailyInterest, 2);
         }
 
+        public decimal CalculateEndOfMonthAmount()
+        {
+            // returns the projected end of month amount, based on current amount/interest/number of days in month
+            return Math.Round(CurrentAmount + DailyInterest * 30); 
+        }
+
         // Method to calculate the next interest payment date based on a given time/day set
+        // CHECK these calculations are correct ⚠️
         private DateTime CalculateNextInterestPaymentDate(string paymentFrequency)
         {
             DateTime today = DateTime.Today;
@@ -48,12 +57,12 @@ namespace Accounts_Interest_Spreadsheet.Models
             {
                 "daily" => today.AddDays(1), 
                 "threetimesaweek" => CalculateThreeTimesAWeek(today),
-                "weekly" => today.AddDays(7), // Next week
-                _ => today.AddDays(1), // Default to daily if no valid option
+                "weekly" => today.AddDays(7), 
+                _ => today.AddDays(1), // Default to daily if no valid option. Change colour of this in futuer?**
             };
         }
 
-        // Helper method to calculate "three times a week" payment date
+        // Function to calculate "three times a week" payment dat. 
         private DateTime CalculateThreeTimesAWeek(DateTime today)
         {
             // Assuming interest payments are on Monday, Wednesday, and Friday
