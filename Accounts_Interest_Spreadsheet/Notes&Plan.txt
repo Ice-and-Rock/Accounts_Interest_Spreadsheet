@@ -16,6 +16,7 @@ Display: table
 *Account page - Specific account information
 
 Display: account information at top, specific transactions in a table below.
+    + include the UUID and data.bankName in the URL
 
 - bank name
 - current amount
@@ -27,5 +28,16 @@ Display: account information at top, specific transactions in a table below.
 - transactions OUt
 
 
+
 DATA SCTRUCTURE
-- InterestPaymentSchedule is basic. Only three fieilds currently exist. More can be added using switch case (or TimeDAte). 
+- InterestPaymentSchedule is basic. Only three fieilds currently exist. More can be added using switch case (or TimeDAte).
+
+*SCALEBAILITY*
+- Think about interest payments based on frequency
+    + take in the frequency and calculate the expected interest payments dynamically based on the current day
+- Centralise Transactions IN/OUT in a seperate file
+    + this will help mock the API calls required when selecting Account by UUID
+- Think about a Service Layer to handle API fetch data from API's (TransactionService)
+    + I should be able to swap between mock data and API data without changing core logic and functions(?)
+- Dynamically support data being brought in using the TransactionService
+    + specifically, calculated interest payments 

@@ -34,8 +34,8 @@
         <tbody>
             @foreach (var data in Model.DisplayData)
             {
-                    // clickable event for each Ruw
-                <tr onclick="location.href='@Url.Page("dataDetail", new { id = data.Id })'">
+                    // clickable event for each Ruw. pass data.Id as route parameter!
+                <tr onclick="location.href='@Url.Page("AccountDetail", new { id = data.Id, bankName = data.BankName.Replace(" ", "-") })'">
                     <td>@data.Date.ToShortDateString()</td>
                     <td>@data.BankName</td>
                     <td>€ @data.CurrentAmount.ToString("N2")</td>
