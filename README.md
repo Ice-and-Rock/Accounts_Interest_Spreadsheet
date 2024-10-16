@@ -1,3 +1,5 @@
+<h1>💸 Bank Account Interest Calculator 📊</h1>
+
 This project was created to explore calculations in a table for a range of bank accounts. 
 
 Things to note:
