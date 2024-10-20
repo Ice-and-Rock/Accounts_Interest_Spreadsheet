@@ -24,13 +24,13 @@ Display: account information at top, specific transactions in a table below.
 - time of interest payment
 - day of next interest payment
 *different colour
-- transactions IN
-- transactions OUt
+- transactions IN 
+- transactions OUT 
 
 
 
 DATA SCTRUCTURE
-- InterestPaymentSchedule is basic. Only three fieilds currently exist. More can be added using switch case (or TimeDAte).
+- InterestPaymentSchedule is basic. Only three fieilds currently exist. More can be added using switch case (or TimeDate).
 
 *SCALEBAILITY*
 - Think about interest payments based on frequency
