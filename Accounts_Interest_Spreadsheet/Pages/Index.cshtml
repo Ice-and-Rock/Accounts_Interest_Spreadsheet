@@ -18,7 +18,8 @@
 </form>-->
 
 
-<div class="table-responsive">
+//OLD DummyData
+@*<div class="table-responsive">
     <table>
         <thead>
             <tr>
@@ -47,6 +48,54 @@
                     <td>€ @data.DailyInterest.ToString("N2")</td>
                     <td>€ @data.TomorrowAmount.ToString("N2")</td>
                     <td>€ @data.EndOfMonthAmount.ToString("N2")</td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>*@
+
+//DummyData V2
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Bank Name</th>
+                <th>Account ID</th>
+                @*<th>Account Type</th>*@
+                <th>Currency</th>
+                <th>Current Balance</th>
+                <th>Interest Rate</th>
+                <th>Daily Interest</th>
+                <th>Projected Tomorrow's Amount</th>
+                <th>End of Month Projected Amount</th>
+                @*<th>Status</th>*@
+                @*<th>Account Holder</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model.DisplayData)
+                {
+                    // Calculate the daily interest and projected amounts
+                    double dailyInterest = (data.Balance.Current * data.InterestRate / 100) / 365;
+                    double projectedTomorrowAmount = data.Balance.Current + dailyInterest;
+                    double endOfMonthProjectedAmount = data.Balance.Current + (dailyInterest * DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+
+                <tr onclick="location.href='@Url.Page("AccountDetail", new { id = data.AccountId, bankName = data.BankDetails.BankName.Replace(" ", "-") })'">
+                    <td>@data.BankDetails.BankName</td>
+                    <td>@data.AccountId</td>
+                    @*<td>@data.AccountType</td>*@
+                    <td>@data.Currency</td>
+                    <td>€ @data.Balance.Current.ToString("N2")</td>
+                    <td>
+                        <span style="color:@((data.InterestRate < 0 ? "red" : "green"));">
+                            @data.InterestRate%
+                        </span>
+                    </td>
+                    <td>€ @dailyInterest.ToString("N2")</td>
+                    <td>€ @projectedTomorrowAmount.ToString("N2")</td>
+                    <td>€ @endOfMonthProjectedAmount.ToString("N2")</td>
+                    @*<td>@data.Metadata.Status</td>*@
+                    @*<td>@data.AccountHolder.FirstName @data.AccountHolder.LastName</td>*@
                 </tr>
             }
         </tbody>

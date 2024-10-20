@@ -14,19 +14,55 @@
 
 
 <h2>BANKING API RESEARCH<h2>
+<h3>Useful links</h3>
+Fake bank API
+- https://developer.banked.com/api-reference/payments-api/bank-accounts#retrieve-bank-account-balances
+
 
 Endpoints such as:
 - ```/accounts/{accountId}```
 ```
 {
+    "bankDetails": {
+        "primary_bank_identification_number": "123456789",
+        "bank_name": "Bank A",
+        "country": "United Kingdom"
+    },
     "accountId": "12345",
     "accountType": "savings",
     "currency": "USD",
-    "balance": 10000.00,
+    "accountHolder": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john.doe@example.com",
+        "phone": "+1-555-123-4567",
+        "address": {
+            "street": "123 Elm St",
+            "city": "Somewhere",
+            "state": "CA",
+            "zipCode": "90210",
+            "country": "USA"
+        }
+    },
+    "balance": {
+        "available": 1500.00,
+        "current": 1550.00,
+        "currency": "USD"
+    },
+    "ceditable": true,
+    "debitable": true,
+    "version": 5,
     "interestRate": 1.5,
-    "nextInterestPaymentDate": "2024-11-01"
-    "nextInterestPaymentTime": ""
+    "nextInterestPaymentDate": "2024-11-01",
+    "nextInterestPaymentTime": "",
+    "metadata": {
+        "creationDate": "2020-01-15T08:00:00Z",
+        "lastUpdated": "2024-10-20T10:30:00Z",
+        "status": "Active",
+        "isVerified": true
+    }
 }
+
 ```
 
 - ```/accounts/{accountId}/transactions```

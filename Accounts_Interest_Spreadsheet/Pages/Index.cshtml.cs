@@ -12,32 +12,15 @@ namespace Accounts_Interest_Spreadsheet.Pages
         // The following lines are unued for data entry later on...
         //public BankAccountData Input { get; set; }
 
-        public List<BankAccountData> DisplayData { get; set; }
+        //public List<BankAccountData> DisplayData { get; set; } //DummyData V1
+        public List<AccountData> DisplayData { get; set; } //DummyData V2
 
         public void OnGet() 
         {
             // Initialize DisplayData to avoid null reference exceptions
-            DisplayData = BankAccountData.GenerateDummyData();
+            //DisplayData = BankAccountData.GenerateDummyData(); //DummyData V1
+            DisplayData = AccountData.GenerateDummyData(); //DummyData V2
         }
 
-
-
-        //public void OnPost()
-        //{
-        //    //Create a new BankAccountData object based on user input.Save this for later...
-
-        //   var accountData = new BankAccountData
-        //   {
-        //       Date = DateTime.Today,
-        //       CurrentAmount = Input.CurrentAmount,
-        //       InterestRate = Input.InterestRate,
-        //       TransactionsIn = Input.TransactionsIn,
-        //       TransactionsOut = Input.TransactionsOut
-        //   };
-
-        //   // Add the new data to DisplayData
-        //   DisplayData = new List<BankAccountData> { accountData };
-            
-        //}
     }
 }

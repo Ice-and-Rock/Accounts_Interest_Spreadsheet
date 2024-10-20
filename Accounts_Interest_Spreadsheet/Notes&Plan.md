@@ -32,6 +32,8 @@ Display: account information at top, specific transactions in a table below.
 <h2>GOAL for 20/10/24</h2>
 - refactor data set into two files to emulate "real world" data
     - AccountData.cs
+        + sort out the currency type to fit with the type given in data
+        + new daily/weekly/mponthly interest projections are now in View (not data Model)
     - TransactionData.cs
 
 - Write a scaleable Services class
