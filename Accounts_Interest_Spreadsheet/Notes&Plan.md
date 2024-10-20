@@ -34,6 +34,8 @@ Display: account information at top, specific transactions in a table below.
     - AccountData.cs
         + sort out the currency type to fit with the type given in data
         + new daily/weekly/mponthly interest projections are now in View (not data Model)
+        + This file should NOT contain logic for calculations
+        + Move DummyData into a new file 
     - TransactionData.cs
 
 - Write a scaleable Services class

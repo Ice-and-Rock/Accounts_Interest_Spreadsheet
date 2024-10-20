@@ -4,6 +4,9 @@ using System.Collections.Generic;
 namespace Accounts_Interest_Spreadsheet.Models
 {
     public class AccountData
+
+        // Keep this Model CLEAN for the Data structure 
+
     {
         public AccountData() { }
 

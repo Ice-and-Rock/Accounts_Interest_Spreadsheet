@@ -1,7 +1,11 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Accounts_Interest_Spreadsheet.Services;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//builder.Services.AddHttpClient<AccountService>(); // Register the AccountService with HttpClient
+builder.Services.AddSingleton<AccountService>(); // Register AccountService as a singleton
 
 var app = builder.Build();
 

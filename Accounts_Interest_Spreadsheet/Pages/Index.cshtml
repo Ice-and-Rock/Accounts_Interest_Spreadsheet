@@ -6,53 +6,6 @@
 
 <h2>Bank Account Overview</h2>
 
-@*The following lines are for data submission, if needed...!
-    - It will require CRUD to be set up.*@
-<!--<form method="post">-->
-<!-- Input fields for data submission can go here -->
-<!--<input type="number" asp-for="Input.CurrentAmount" placeholder="Current Amount" required />
-    <input type="number" asp-for="Input.InterestRate" placeholder="Interest Rate" required />
-    <input type="number" asp-for="Input.TransactionsIn" placeholder="Transactions In" required />
-    <input type="number" asp-for="Input.TransactionsOut" placeholder="Transactions Out" required />
-    <button type="submit">Submit</button>
-</form>-->
-
-
-//OLD DummyData
-@*<div class="table-responsive">
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Bank Name</th>
-                <th>Current Amount</th>
-                <th>Interest Rate</th>
-                <th>Daily Interest</th>
-                <th>Tomorrow's Projected Amount</th>
-                <th>End of Month Projected Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var data in Model.DisplayData)
-            {
-                    // clickable event for each Ruw. pass data.Id as route parameter!
-                <tr onclick="location.href='@Url.Page("AccountDetail", new { id = data.Id, bankName = data.BankName.Replace(" ", "-") })'">
-                    <td>@data.Date.ToShortDateString()</td>
-                    <td>@data.BankName</td>
-                    <td>€ @data.CurrentAmount.ToString("N2")</td>
-                    <td>
-                        <span style="color:@((data.InterestRate < 0 ? "red" : "green"));">
-                            @data.InterestRate%
-                        </span>
-                    </td>
-                    <td>€ @data.DailyInterest.ToString("N2")</td>
-                    <td>€ @data.TomorrowAmount.ToString("N2")</td>
-                    <td>€ @data.EndOfMonthAmount.ToString("N2")</td> 
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>*@
 
 //DummyData V2
 <div class="table-responsive">
@@ -61,15 +14,14 @@
             <tr>
                 <th>Bank Name</th>
                 <th>Account ID</th>
-                @*<th>Account Type</th>*@
+
                 <th>Currency</th>
                 <th>Current Balance</th>
                 <th>Interest Rate</th>
                 <th>Daily Interest</th>
                 <th>Projected Tomorrow's Amount</th>
                 <th>End of Month Projected Amount</th>
-                @*<th>Status</th>*@
-                @*<th>Account Holder</th>*@
+          
             </tr>
         </thead>
         <tbody>
@@ -83,7 +35,7 @@
                 <tr onclick="location.href='@Url.Page("AccountDetail", new { id = data.AccountId, bankName = data.BankDetails.BankName.Replace(" ", "-") })'">
                     <td>@data.BankDetails.BankName</td>
                     <td>@data.AccountId</td>
-                    @*<td>@data.AccountType</td>*@
+             
                     <td>@data.Currency</td>
                     <td>€ @data.Balance.Current.ToString("N2")</td>
                     <td>
@@ -94,9 +46,7 @@
                     <td>€ @dailyInterest.ToString("N2")</td>
                     <td>€ @projectedTomorrowAmount.ToString("N2")</td>
                     <td>€ @endOfMonthProjectedAmount.ToString("N2")</td>
-                    @*<td>@data.Metadata.Status</td>*@
-                    @*<td>@data.AccountHolder.FirstName @data.AccountHolder.LastName</td>*@
-                </tr>
+                    </tr>
             }
         </tbody>
     </table>
