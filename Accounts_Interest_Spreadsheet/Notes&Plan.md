@@ -32,18 +32,19 @@ Display: account information at top, specific transactions in a table below.
 <h2>GOAL for 20/10/24</h2>
 - refactor data set into two files to emulate "real world" data
     - AccountData.cs
-        + sort out the currency type to fit with the type given in data
-        + new daily/weekly/mponthly interest projections are now in View (not data Model)
-        + This file should NOT contain logic for calculations
-        + Move DummyData into a new file 
+        + sort out the currency type to fit with the type given in data >DONE
+        + new daily/weekly/mponthly interest projections are now in View (not data Model) >DONE
+        + This file should NOT contain logic for calculations >DONE
+        + Move DummyData into a new file >DONE
     - TransactionData.cs
 
 - Write a scaleable Services class
-    - IAccountServices.cs (interface)
-    - DummyAccountService.cs (dummy data service)
-    - AccountService.cs (for real API calls)
+    - IAccountServices.cs (interface) >CHANGE
+    - DummyAccountService.cs (dummy data service) >CHANGE
+    - AccountService.cs (for real API calls) >DONE, using DummyData 
 
 - Inject Services class into Startup.cs/Program.cs
     - use boolean statement to switch between DummyData or services from API
     - this boolean can be later changed in Environment or config files (changed in Git branch?)
+
 

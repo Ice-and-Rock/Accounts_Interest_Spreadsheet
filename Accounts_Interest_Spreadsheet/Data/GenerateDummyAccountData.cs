@@ -5,9 +5,9 @@ using Accounts_Interest_Spreadsheet.Models;
 
 namespace Accounts_Interest_Spreadsheet.Data
 {
-	public static class GenerateDummyData
+	public static class GenerateDummyAccountData
 	{
-		public static List<AccountData> CreateDummyAccounts()
+		public static List<AccountData> GetDummyAccounts()
 		{
             return new List<AccountData> 
             {
@@ -52,7 +52,7 @@ namespace Accounts_Interest_Spreadsheet.Data
                         IsVerified = true
                     }
                 },
-                // Add more stuff here for the othre accounts **
+                
                 new AccountData
 {
     AccountId = "23456",

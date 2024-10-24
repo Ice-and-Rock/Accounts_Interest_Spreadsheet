@@ -11,7 +11,7 @@ namespace Accounts_Interest_Spreadsheet.Pages
     {
         private readonly AccountService _accountService;
         [BindProperty]
-        // The following lines are unued for data entry later on...
+        // The following lines are unused for data entry later on...
         //public BankAccountData Input { get; set; }
 
         //public List<BankAccountData> DisplayData { get; set; } //DummyData V1
@@ -25,8 +25,14 @@ namespace Accounts_Interest_Spreadsheet.Pages
         public void OnGet()
         {
             // Get dummy data
-            DisplayData = _accountService.GetDummyData();
+            DisplayData = _accountService.GetAccountData();
         }
+
+
+
+
+
+
 
         // REAL DATA Fetch here... 
         //public async Task OngetAsync()
